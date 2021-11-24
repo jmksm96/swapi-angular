@@ -3,13 +3,11 @@ import { Character } from 'src/app/core/models/character';
 import { CharactersService } from 'src/app/core/services/characters.service';
 
 @Component({
-  selector: 'app-characters',
-  templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.scss'],
+  templateUrl: './characters-list.component.html',
+  styleUrls: ['./characters-list.component.scss'],
 })
-export class CharactersComponent implements OnInit {
+export class CharactersListComponent implements OnInit {
   data!: Character[];
-
   constructor(private charactersService: CharactersService) {}
 
   ngOnInit(): void {

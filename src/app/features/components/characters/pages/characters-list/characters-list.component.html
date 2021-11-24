@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <h2 class="title">Characters</h2>
+  <div class="characters">
+    <div class="person"
+         *ngFor="let item of data">
+      <div class="img-wrapper">
+        <img src="{{item.img}}"
+             alt="">
+      </div>
+      <p class="name">{{item.name}}</p>
+    </div>
+  </div>
+</div>

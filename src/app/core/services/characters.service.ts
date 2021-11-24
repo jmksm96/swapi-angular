@@ -14,12 +14,25 @@ export class CharactersService {
   getAllCharacters() {
     return this.http
       .get<CharactersPaginatedResponse>(environment.backendUrl + '/people')
-      .pipe(map((res) => res.results.map((i) => new Character(i))));
+      .pipe(
+        map((res) =>
+          res.results.map(
+            (i) => new Character({ ...i, id: this.getIdFromUrl(i.url) })
+          )
+        )
+      );
   }
 
-  getCharacter(id: number) {
+  getCharacter(id: string) {
     return this.http.get<CharacterResponse>(
       environment.backendUrl + `/people/${id}`
     );
+  }
+
+  getIdFromUrl(url?: string): number {
+    if (!url) return -1;
+    let arr = url.split('/');
+    let id = arr[arr.length - 2];
+    return +id;
   }
 }

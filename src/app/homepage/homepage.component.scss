@@ -1,3 +1,5 @@
+@use "core" as *;
+
 .wrapper {
   padding: 0 3rem;
   max-width: 127.6rem;
@@ -5,6 +7,11 @@
   h2 {
     text-align: center;
     margin-bottom: 3rem;
+    font-family: $font-family-primary;
+  }
+
+  span {
+    font-family: $font-family-secondary;
   }
 }
 

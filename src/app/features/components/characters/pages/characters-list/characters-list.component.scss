@@ -1,0 +1,25 @@
+.title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -2rem;
+  flex: 1;
+}
+
+.person {
+  margin: 2rem;
+  max-width: 20.8rem;
+  max-height: 28.7rem;
+}
+
+.img-wrapper {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
