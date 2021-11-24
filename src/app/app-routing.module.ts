@@ -6,7 +6,6 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./homepage/homepage.module').then((m) => m.HomepageModule),
-    data: { breadcrumb: 'homepage' },
   },
   {
     path: 'characters',
@@ -14,7 +13,6 @@ const routes: Routes = [
       import('./features/components/characters/characters.module').then(
         (m) => m.CharacterModule
       ),
-    data: { breadcrumb: 'characters' },
   },
 ];
 
