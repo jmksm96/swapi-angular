@@ -2,12 +2,13 @@
   <h2 class="title">Characters</h2>
   <div class="characters">
     <div class="person"
-         *ngFor="let item of data">
+         *ngFor="let character of data"
+         [routerLink]="['/characters', character.id]">
       <div class="img-wrapper">
-        <img src="{{item.img}}"
+        <img src="{{character.img}}"
              alt="">
       </div>
-      <p class="name">{{item.name}}</p>
+      <p class="name">{{character.name}}</p>
     </div>
   </div>
 </div>
