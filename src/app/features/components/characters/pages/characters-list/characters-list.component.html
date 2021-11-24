@@ -2,7 +2,7 @@
   <h2 class="title">Characters</h2>
   <div class="cards">
     <div class="card"
-         *ngFor="let character of data"
+         *ngFor="let character of data?.results"
          [routerLink]="['/characters', character.id]">
       <div class="img-wrapper">
         <img src="{{character.img}}"

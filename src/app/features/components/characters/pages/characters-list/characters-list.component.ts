@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { mapPaginatedResponse } from 'src/app/core/helpers/map-response';
 import { Character } from 'src/app/core/models/character';
+import { Pagination } from 'src/app/core/models/pagination';
 import { CharactersService } from 'src/app/core/services/characters.service';
 
 @Component({
@@ -7,7 +9,7 @@ import { CharactersService } from 'src/app/core/services/characters.service';
   styleUrls: ['./characters-list.component.scss'],
 })
 export class CharactersListComponent implements OnInit {
-  data!: Character[];
+  data!: Pagination<Character>;
   constructor(private charactersService: CharactersService) {}
 
   ngOnInit(): void {
@@ -15,8 +17,11 @@ export class CharactersListComponent implements OnInit {
   }
 
   getData() {
-    this.charactersService.getAllCharacters().subscribe((res) => {
-      this.data = res;
-    });
+    this.charactersService
+      .getAllCharacters()
+      .pipe(mapPaginatedResponse(Character))
+      .subscribe((res) => {
+        this.data = res;
+      });
   }
 }

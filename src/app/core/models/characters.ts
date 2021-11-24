@@ -1,19 +1,13 @@
 import { CharacterResponse } from './character';
+import { Item } from './item';
 
 export interface CharactersPaginatedResponse {
-  count: number;
-  next: string;
-  previous: string | null;
-  results: CharacterResponse[];
+  results: CharacterResponse;
 }
 
-export class Characters implements CharactersPaginatedResponse {
-  count!: number;
-  next!: string;
-  previous!: string | null;
-  results!: CharacterResponse[];
-
-  constructor(data: CharactersPaginatedResponse) {
-    Object.assign(this, data);
-  }
+export class Characters
+  extends Item<CharactersPaginatedResponse>
+  implements CharactersPaginatedResponse
+{
+  results!: CharacterResponse;
 }
