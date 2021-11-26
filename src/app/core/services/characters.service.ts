@@ -22,4 +22,10 @@ export class CharactersService {
       environment.backendUrl + `/people/${id}`
     );
   }
+
+  getNextPortion(pageNumber: number) {
+    return this.http.get<Pagination<CharactersPaginatedResponse>>(
+      environment.backendUrl + `/people/?page=${pageNumber}`
+    );
+  }
 }

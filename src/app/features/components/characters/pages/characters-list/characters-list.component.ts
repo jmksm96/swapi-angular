@@ -24,4 +24,13 @@ export class CharactersListComponent implements OnInit {
         this.data = res;
       });
   }
+
+  onPageIndexChange(event: number) {
+    this.charactersService
+      .getNextPortion(event)
+      .pipe(mapPaginatedResponse(Character))
+      .subscribe((res) => {
+        this.data = res;
+      });
+  }
 }

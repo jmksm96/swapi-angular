@@ -10,11 +10,12 @@ import { PlanetsService } from 'src/app/core/services/planets.service';
 })
 export class PlanetsLogoComponent implements OnInit {
   @Input() id!: number;
-  planet!: Planet;
 
-  get img() {
+  get img(): string {
     return `https://starwars-visualguide.com/assets/img/planets/${this.id}.jpg`;
   }
+
+  planet!: Planet;
 
   constructor(private route: Router, private planetsService: PlanetsService) {}
 

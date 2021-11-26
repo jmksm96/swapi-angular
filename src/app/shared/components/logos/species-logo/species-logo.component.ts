@@ -8,7 +8,7 @@ import { SpeciesService } from 'src/app/core/services/species.service';
   templateUrl: './species-logo.component.html',
   styleUrls: ['./species-logo.component.scss'],
 })
-export class PlanetsLogoComponent implements OnInit {
+export class SpeciesLogoComponent implements OnInit {
   @Input() id!: number;
   species!: SpeciesItem;
 
