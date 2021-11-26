@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PreviewComponent } from './preview/preview.component';
+import { CharactersLogoComponent } from './logos/characters-logo/characters-logo.component';
+import { PlanetsLogoComponent } from './logos/planets-logo/planets-logo.component';
 
 @NgModule({
-  declarations: [PreviewComponent],
+  declarations: [CharactersLogoComponent, PlanetsLogoComponent],
   imports: [CommonModule],
-  exports: [CommonModule, PreviewComponent],
+  exports: [CommonModule, CharactersLogoComponent, PlanetsLogoComponent],
 })
 export class ComponentsModule {}

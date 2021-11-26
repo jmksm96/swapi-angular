@@ -21,6 +21,13 @@ const routes: Routes = [
         (m) => m.PlanetsModule
       ),
   },
+  {
+    path: 'films',
+    loadChildren: () =>
+      import('./features/components/films/films.module').then(
+        (m) => m.FilmsModule
+      ),
+  },
 ];
 
 @NgModule({

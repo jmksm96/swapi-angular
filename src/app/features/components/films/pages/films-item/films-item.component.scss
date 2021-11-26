@@ -1,0 +1,40 @@
+.additional-info {
+  display: flex;
+  margin-left: auto;
+  justify-content: center;
+}
+
+.common-container {
+  margin-top: 3rem;
+  background-color: #ffff;
+
+  &:not(last-child) {
+    margin-right: 3rem;
+  }
+
+  h3 {
+    padding: 1rem;
+  }
+
+  .line {
+    position: relative;
+    height: 1px;
+    background-color: #808080;
+  }
+}
+
+.common-wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  .resident,
+  .planet {
+    &:not(last-child) {
+      margin-right: 2rem;
+    }
+    h3 {
+      margin-bottom: 3rem;
+    }
+  }
+}

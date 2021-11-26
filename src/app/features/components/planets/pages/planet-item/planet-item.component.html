@@ -28,11 +28,12 @@
         <div class="resident"
              *ngFor="let resident of residentId"
              [routerLink]="['/characters', resident]">
-          <app-preview [id]="resident"></app-preview>
+          <app-characters-logo [id]="resident"></app-characters-logo>
         </div>
       </div>
     </div>
-    <div class="residents-container">
+
+    <!-- <div class="residents-container">
       <h3>Residents</h3>
       <div class="line"></div>
       <div class="resident-wrapper">
@@ -42,6 +43,6 @@
           <app-preview [id]="resident"></app-preview>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
