@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 import { setID } from 'src/app/core/helpers/set-id';
 import { Character } from 'src/app/core/models/character';
 import { CharactersService } from 'src/app/core/services/characters.service';
@@ -12,6 +13,7 @@ import { CharactersService } from 'src/app/core/services/characters.service';
 export class CharactersItemComponent implements OnInit {
   data!: Character;
   id!: string;
+  isLoading!: boolean;
   homeworldId!: number;
   vehiclesId!: number[];
   filmsId!: number[];
@@ -35,12 +37,16 @@ export class CharactersItemComponent implements OnInit {
   }
 
   getCharacterInfo(id: string) {
-    this.charactersService.getCharacter(id).subscribe((res) => {
-      this.data = new Character(res);
-      this.homeworldId = setID(this.data.homeworld);
-      this.filmsId = this.data.films.map((res) => setID(res));
-      this.vehiclesId = this.data.vehicles.map((res) => setID(res));
-      this.starshipsId = this.data.starships.map((res) => setID(res));
-    });
+    this.isLoading = true;
+    this.charactersService
+      .getCharacter(id)
+      .pipe(finalize(() => (this.isLoading = false)))
+      .subscribe((res) => {
+        this.data = new Character(res);
+        this.homeworldId = setID(this.data.homeworld);
+        this.filmsId = this.data.films.map((res) => setID(res));
+        this.vehiclesId = this.data.vehicles.map((res) => setID(res));
+        this.starshipsId = this.data.starships.map((res) => setID(res));
+      });
   }
 }

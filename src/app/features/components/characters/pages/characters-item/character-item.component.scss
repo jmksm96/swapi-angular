@@ -31,16 +31,25 @@
     justify-content: center;
   }
 
+  .related-wrapper {
+    background-color: #ffff;
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    .line {
+      position: relative;
+      height: 1px;
+      background-color: #808080;
+    }
+  }
+
   .related {
     min-height: 15rem;
     display: flex;
     align-items: center;
     padding: 1rem;
-    margin-bottom: 1rem;
-    background-color: #ffff;
-    &:not(:last-child) {
-      margin-right: 1rem;
-    }
+    // margin-bottom: 1rem;
 
     .related-content {
       padding: 1rem;

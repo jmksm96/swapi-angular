@@ -1,3 +1,6 @@
+<!-- <nz-spin nzSimple
+         *ngIf="!data && isLoading"></nz-spin> -->
+
 <div class="container item-wrapper">
   <div class="navigation">
     <nz-breadcrumb>
@@ -30,25 +33,45 @@
   </div>
 
   <div class="related-blocks">
-    <div class="related films">
-      <div class="related-content"
-           *ngFor="let id of filmsId"
-           [routerLink]="['/films', id]">
-        <app-films-logo [id]="id"></app-films-logo>
+    <div class="related-wrapper">
+      <div class="title">
+        <h3>Related Films</h3>
+        <div class="line"></div>
+      </div>
+      <div class="related films">
+        <div class="related-content"
+             *ngFor="let id of filmsId"
+             [routerLink]="['/films', id]">
+          <app-films-logo [id]="id"></app-films-logo>
+        </div>
       </div>
     </div>
-    <div class="related vehicles">
-      <div class="related-content"
-           *ngFor="let id of vehiclesId"
-           [routerLink]="['/vehicles', id]">
-        <app-vehicles-logo [id]="id"></app-vehicles-logo>
+
+    <div class="related-wrapper">
+      <div class="title">
+        <h3>Related Vehicles</h3>
+        <div class="line"></div>
+      </div>
+      <div class="related vehicles">
+        <div class="related-content"
+             *ngFor="let id of vehiclesId"
+             [routerLink]="['/vehicles', id]">
+          <app-vehicles-logo [id]="id"></app-vehicles-logo>
+        </div>
       </div>
     </div>
-    <div class="related starships">
-      <div class="related-content"
-           *ngFor="let id of starshipsId"
-           [routerLink]="['/starships', id]">
-        <app-starships-logo [id]="id"></app-starships-logo>
+
+    <div class="related-wrapper">
+      <div class="title">
+        <h3>Related Starships</h3>
+        <div class="line"></div>
+      </div>
+      <div class="related starships">
+        <div class="related-content"
+             *ngFor="let id of starshipsId"
+             [routerLink]="['/starships', id]">
+          <app-starships-logo [id]="id"></app-starships-logo>
+        </div>
       </div>
     </div>
   </div>
