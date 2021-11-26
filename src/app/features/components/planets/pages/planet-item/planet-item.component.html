@@ -1,0 +1,47 @@
+<div class="wrapper">
+  <div class="card-details">
+    <div class="img-wrapper">
+      <img src="{{img}}"
+           alt="">
+    </div>
+    <div class="details">
+      <h3>{{data?.name}}</h3>
+      <p>Population: {{data?.population}}</p>
+      <p>Rotation Period: {{data?.rotation_period}}</p>
+      <p>Orbital Period: {{data?.orbital_period}}</p>
+      <p>Diameter: {{data?.diameter}}</p>
+      <p>Gravity: {{data?.gravity}}</p>
+      <p>Terrain: {{data?.terrain}}</p>
+      <p>Surface Water: {{data?.surface_water}}</p>
+      <p>Climate: {{data?.climate}}</p>
+    </div>
+  </div>
+
+  <div class="additional-info">
+    <!-- <div class="films">
+    </div> -->
+
+    <div class="residents-container">
+      <h3>Residents</h3>
+      <div class="line"></div>
+      <div class="resident-wrapper">
+        <div class="resident"
+             *ngFor="let resident of residentId"
+             [routerLink]="['/characters', resident]">
+          <app-preview [id]="resident"></app-preview>
+        </div>
+      </div>
+    </div>
+    <div class="residents-container">
+      <h3>Residents</h3>
+      <div class="line"></div>
+      <div class="resident-wrapper">
+        <div class="resident"
+             *ngFor="let resident of residentId"
+             [routerLink]="['/characters', resident]">
+          <app-preview [id]="resident"></app-preview>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="character">
+  <div class="card-details">
     <div class="img-wrapper">
       <img src="{{img}}"
            alt="">
@@ -12,7 +12,7 @@
       <p>Gender: {{character?.gender}}</p>
       <p>Hair Color: {{character?.hair_color}}</p>
       <p>Skin Color: {{character?.skin_color}}</p>
-      <p>Homeworld: {{character?.homeworld}}</p>
+      <p [routerLink]="['/planets', homeworldId]">Homeworld: Planet</p>
     </div>
   </div>
 

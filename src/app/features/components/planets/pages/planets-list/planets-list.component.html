@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <h2 class="title">Planets</h2>
+  <div class="cards">
+    <div class="card"
+         *ngFor="let planet of data?.results"
+         [routerLink]="['/planets', planet.id]">
+      <div class="img-wrapper">
+        <img src="{{planet.img}}"
+             alt="">
+      </div>
+      <p class="name">{{planet.name}}</p>
+    </div>
+  </div>
+</div>

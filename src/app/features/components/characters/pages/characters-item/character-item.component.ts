@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { setID } from 'src/app/core/helpers/set-id';
 import { Character } from 'src/app/core/models/character';
 import { CharactersService } from 'src/app/core/services/characters.service';
 
@@ -11,6 +12,7 @@ import { CharactersService } from 'src/app/core/services/characters.service';
 export class CharactersItemComponent implements OnInit {
   character!: Character;
   id!: string;
+  homeworldId!: number;
 
   get img() {
     return `https://starwars-visualguide.com/assets/img/characters/${this.id}.jpg`;
@@ -32,7 +34,7 @@ export class CharactersItemComponent implements OnInit {
   getCharacterInfo(id: string) {
     this.charactersService.getCharacter(id).subscribe((res) => {
       this.character = new Character(res);
-      console.log(this.character);
+      this.homeworldId = setID(this.character.homeworld);
     });
   }
 }

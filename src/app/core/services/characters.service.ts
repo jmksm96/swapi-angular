@@ -17,7 +17,7 @@ export class CharactersService {
     );
   }
 
-  getCharacter(id: string) {
+  getCharacter(id: string | number) {
     return this.http.get<CharacterResponse>(
       environment.backendUrl + `/people/${id}`
     );

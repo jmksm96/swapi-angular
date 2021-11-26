@@ -14,6 +14,13 @@ const routes: Routes = [
         (m) => m.CharacterModule
       ),
   },
+  {
+    path: 'planets',
+    loadChildren: () =>
+      import('./features/components/planets/planets.module').then(
+        (m) => m.PlanetsModule
+      ),
+  },
 ];
 
 @NgModule({
