@@ -13,13 +13,13 @@ export class VehiclesService {
 
   getAllVehicles() {
     return this.http.get<Pagination<VehiclesResponse>>(
-      environment.backendUrl + '/species'
+      environment.backendUrl + '/vehicles'
     );
   }
 
   getVehicle(id: string | number) {
     return this.http.get<VehicleResponse>(
-      environment.backendUrl + `/species/${id}`
+      environment.backendUrl + `/vehicles/${id}`
     );
   }
 }

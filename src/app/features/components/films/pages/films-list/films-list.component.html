@@ -4,10 +4,10 @@
     <div class="card"
          *ngFor="let film of data?.results"
          [routerLink]="['/films', film.id]">
-      <div class="img-wrapper">
-        <img src="{{film.img}}"
-             alt="">
-      </div>
+      <!-- <div class="img-wrapper"> -->
+      <img src="{{film.img}}"
+           alt="">
+      <!-- </div> -->
       <p class="name">{{film.title}}</p>
     </div>
   </div>

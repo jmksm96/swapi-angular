@@ -1,18 +1,26 @@
-<div class="wrapper">
+<div class="container">
   <h2 class="title">Characters</h2>
+  <div class="navigation">
+    <nz-breadcrumb>
+      <nz-breadcrumb-item>
+        <a [routerLink]="['/']">Home</a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>Characters</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <nz-pagination [nzPageIndex]="1"
+                   [nzTotal]="data?.count"
+                   [nzSize]="'small'"
+                   (nzPageIndexChange)="onPageIndexChange($event)"></nz-pagination>
+  </div>
   <div class="cards">
     <div class="card"
-         *ngFor="let character of data?.results"
-         [routerLink]="['/characters', character.id]">
+         [routerLink]="['/characters', character.id]"
+         *ngFor="let character of data?.results">
       <div class="img-wrapper">
-        <img src="{{character.img}}"
-             alt="">
+        <img src="{{character?.img}}"
+             alt="photos">
       </div>
-      <p class="name">{{character.name}}</p>
+      <p>{{character?.name}}</p>
     </div>
   </div>
 </div>
-
-<nz-pagination [nzPageIndex]="1"
-               [nzTotal]="data?.count"
-               (nzPageIndexChange)="onPageIndexChange($event)"></nz-pagination>

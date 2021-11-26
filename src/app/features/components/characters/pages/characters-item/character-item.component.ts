@@ -10,9 +10,12 @@ import { CharactersService } from 'src/app/core/services/characters.service';
   styleUrls: ['./character-item.component.scss'],
 })
 export class CharactersItemComponent implements OnInit {
-  character!: Character;
+  data!: Character;
   id!: string;
   homeworldId!: number;
+  vehiclesId!: number[];
+  filmsId!: number[];
+  starshipsId!: number[];
 
   get img() {
     return `https://starwars-visualguide.com/assets/img/characters/${this.id}.jpg`;
@@ -33,8 +36,11 @@ export class CharactersItemComponent implements OnInit {
 
   getCharacterInfo(id: string) {
     this.charactersService.getCharacter(id).subscribe((res) => {
-      this.character = new Character(res);
-      this.homeworldId = setID(this.character.homeworld);
+      this.data = new Character(res);
+      this.homeworldId = setID(this.data.homeworld);
+      this.filmsId = this.data.films.map((res) => setID(res));
+      this.vehiclesId = this.data.vehicles.map((res) => setID(res));
+      this.starshipsId = this.data.starships.map((res) => setID(res));
     });
   }
 }
