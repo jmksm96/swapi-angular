@@ -11,13 +11,13 @@ import { StarshipsResponse } from '../models/starships';
 export class StarshipsService {
   constructor(private http: HttpClient) {}
 
-  getAllSpecies() {
+  getAllStarships() {
     return this.http.get<Pagination<StarshipsResponse>>(
       environment.backendUrl + '/species'
     );
   }
 
-  getSpeciesItem(id: string | number) {
+  getStarship(id: string | number) {
     return this.http.get<StarshipResponse>(
       environment.backendUrl + `/species/${id}`
     );

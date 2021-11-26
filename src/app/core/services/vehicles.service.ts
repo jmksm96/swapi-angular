@@ -11,13 +11,13 @@ import { VehiclesResponse } from '../models/vehicles';
 export class VehiclesService {
   constructor(private http: HttpClient) {}
 
-  getAllSpecies() {
+  getAllVehicles() {
     return this.http.get<Pagination<VehiclesResponse>>(
       environment.backendUrl + '/species'
     );
   }
 
-  getSpeciesItem(id: string | number) {
+  getVehicle(id: string | number) {
     return this.http.get<VehicleResponse>(
       environment.backendUrl + `/species/${id}`
     );
