@@ -28,6 +28,27 @@ const routes: Routes = [
         (m) => m.FilmsModule
       ),
   },
+  {
+    path: 'species',
+    loadChildren: () =>
+      import('./features/components/species/species.module').then(
+        (m) => m.SpeciesModule
+      ),
+  },
+  {
+    path: 'vehicles',
+    loadChildren: () =>
+      import('./features/components/vehicles/vehicles.module').then(
+        (m) => m.VehiclesModule
+      ),
+  },
+  {
+    path: 'starships',
+    loadChildren: () =>
+      import('./features/components/starships/starships.module').then(
+        (m) => m.StarshipsModule
+      ),
+  },
 ];
 
 @NgModule({
