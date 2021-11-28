@@ -37,12 +37,16 @@ export class CharactersItemComponent implements OnInit {
   ngOnInit(): void {
     this.activateRoute.params.subscribe((res) => {
       this.getCharacterInfo(res.id);
-      this.imageService.getImg(res.id, 'character').subscribe((res: any) => {
-        if (res.error) {
-          this.img === this.placeholder;
+      this.imageService.getImg(res.id, 'characters').subscribe(
+        (res: any) => {
+          this.createImageFromBlob(res);
+        },
+        (error) => {
+          this.imageService
+            .getPlaceholder()
+            .subscribe((res) => this.createImageFromBlob(res));
         }
-        this.createImageFromBlob(res);
-      });
+      );
     });
   }
 
