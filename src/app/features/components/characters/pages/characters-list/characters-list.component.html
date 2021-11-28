@@ -1,4 +1,5 @@
 <div class="container">
+
   <h2 class="title">Characters</h2>
   <div class="navigation">
     <nz-breadcrumb>
@@ -13,6 +14,7 @@
                    (nzPageIndexChange)="onPageIndexChange($event)"></nz-pagination>
   </div>
   <div class="cards">
+
     <div class="card"
          [routerLink]="['/characters', character.id]"
          *ngFor="let character of data?.results">
@@ -22,5 +24,13 @@
       </div>
       <p>{{character?.name}}</p>
     </div>
+    <ng-template #indicatorTemplate><i nz-icon
+         class="spiner"
+         nzType="loading"></i></ng-template>
+    <nz-spin nzSimple
+             nzTip="Loading..."
+             [nzIndicator]="indicatorTemplate"
+             *ngIf="isLoading"
+             [nzSize]="'large'"></nz-spin>
   </div>
 </div>

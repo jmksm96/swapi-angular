@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { finalize } from 'rxjs/operators';
 import { mapPaginatedResponse } from 'src/app/core/helpers/map-response';
 import { Character } from 'src/app/core/models/character';
 import { Pagination } from 'src/app/core/models/pagination';
@@ -10,16 +11,21 @@ import { CharactersService } from 'src/app/core/services/characters.service';
 })
 export class CharactersListComponent implements OnInit {
   data!: Pagination<Character>;
+  isLoading!: boolean;
   constructor(private charactersService: CharactersService) {}
 
   ngOnInit(): void {
     this.getData();
+    this.isLoading = true;
   }
 
   getData() {
     this.charactersService
       .getAllCharacters()
-      .pipe(mapPaginatedResponse(Character))
+      .pipe(
+        mapPaginatedResponse(Character),
+        finalize(() => (this.isLoading = false))
+      )
       .subscribe((res) => {
         this.data = res;
       });
@@ -27,8 +33,11 @@ export class CharactersListComponent implements OnInit {
 
   onPageIndexChange(event: number) {
     this.charactersService
-      .getNextPortion(event)
-      .pipe(mapPaginatedResponse(Character))
+      .getAllCharacters(event)
+      .pipe(
+        mapPaginatedResponse(Character),
+        finalize(() => (this.isLoading = false))
+      )
       .subscribe((res) => {
         this.data = res;
       });

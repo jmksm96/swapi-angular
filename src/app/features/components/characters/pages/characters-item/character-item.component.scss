@@ -1,4 +1,5 @@
 .item-wrapper {
+  padding: 0 8rem;
   .navigation {
     padding-top: 3rem;
   }
@@ -33,6 +34,10 @@
 
   .related-wrapper {
     background-color: #ffff;
+    // &:not(:first-child) {
+    //   margin-left: auto;
+    // }
+
     &:not(:last-child) {
       margin-right: 1rem;
     }

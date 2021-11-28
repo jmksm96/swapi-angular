@@ -11,21 +11,21 @@ import { Pagination } from '../models/pagination';
 export class CharactersService {
   constructor(private http: HttpClient) {}
 
-  getAllCharacters() {
-    return this.http.get<Pagination<CharactersPaginatedResponse>>(
-      environment.backendUrl + '/people'
-    );
+  getAllCharacters(pageNumber?: number) {
+    if (pageNumber) {
+      return this.http.get<Pagination<CharactersPaginatedResponse>>(
+        environment.backendUrl + `/people/?page=${pageNumber}`
+      );
+    } else {
+      return this.http.get<Pagination<CharactersPaginatedResponse>>(
+        environment.backendUrl + '/people'
+      );
+    }
   }
 
   getCharacter(id: string | number) {
     return this.http.get<CharacterResponse>(
       environment.backendUrl + `/people/${id}`
-    );
-  }
-
-  getNextPortion(pageNumber: number) {
-    return this.http.get<Pagination<CharactersPaginatedResponse>>(
-      environment.backendUrl + `/people/?page=${pageNumber}`
     );
   }
 }
