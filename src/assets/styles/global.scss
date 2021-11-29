@@ -12,10 +12,20 @@ body {
   max-width: 127.6rem;
   padding: 0 3rem;
 
+  .category-title {
+    text-align: center;
+    padding: 1rem 0;
+    color: #ffff;
+    font-size: 2rem;
+    font-family: $font-family-primary;
+  }
+
   .title {
     text-align: center;
     padding: 1rem 0;
     color: #ffff;
+    // font-size: 2rem;
+    // font-family: $font-family-primary;
   }
 }
 
@@ -31,14 +41,22 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin: -2rem;
+  margin-top: auto;
 
   .card {
     flex: 1 0 15%;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
     align-items: center;
     margin: 1rem;
     max-width: 15%;
+    background-color: #ffff;
+
+    p {
+      margin-top: 1rem;
+      font-family: "Montserrat", sans-serif;
+    }
 
     .img-wrapper {
       img {
@@ -54,5 +72,7 @@ body {
 }
 
 .spiner {
-  font-size: 72px;
+  i {
+    font-size: 72px;
+  }
 }

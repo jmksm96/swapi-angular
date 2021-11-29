@@ -1,5 +1,4 @@
 <div class="container item-wrapper">
-
   <div class="navigation">
     <nz-breadcrumb>
       <nz-breadcrumb-item>
@@ -36,6 +35,7 @@
         <h3>Related Films</h3>
         <div class="line"></div>
       </div>
+
       <div class="related films">
         <ng-template #indicatorTemplate><i nz-icon
              class="spiner"
@@ -78,6 +78,7 @@
     </div>
 
     <div class="related-wrapper">
+
       <div class="title">
         <h3>Related Starships</h3>
         <div class="line"></div>
@@ -85,7 +86,8 @@
       <div class="related starships">
         <ng-template #indicatorTemplate><i nz-icon
              class="spiner"
-             nzType="loading"></i></ng-template>
+             nzType="loading"></i>
+        </ng-template>
         <nz-spin nzSimple
                  nzTip="Loading..."
                  [nzIndicator]="indicatorTemplate"

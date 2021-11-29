@@ -1,5 +1,6 @@
 .item-wrapper {
   padding: 0 8rem;
+
   .navigation {
     padding-top: 3rem;
   }
@@ -19,6 +20,7 @@
     margin-left: 2rem;
     p {
       margin-bottom: 0;
+      font-family: "Montserrat", sans-serif;
     }
   }
 
@@ -30,13 +32,16 @@
   .related-blocks {
     display: flex;
     justify-content: center;
+
+    .title {
+      font-size: 1rem;
+      font-family: "Montserrat", sans-serif;
+    }
   }
 
   .related-wrapper {
     background-color: #ffff;
-    // &:not(:first-child) {
-    //   margin-left: auto;
-    // }
+    flex: 0 0 25%;
 
     &:not(:last-child) {
       margin-right: 1rem;
@@ -44,18 +49,16 @@
 
     .line {
       position: relative;
-      height: 1px;
+      height: 0.1rem;
       background-color: #808080;
     }
   }
 
   .related {
     min-height: 15rem;
-    // min-width: 20.1rem;
     display: flex;
     align-items: center;
     padding: 1rem;
-    // margin-bottom: 1rem;
 
     .related-content {
       padding: 1rem;

@@ -22,10 +22,6 @@ export class CharactersItemComponent implements OnInit {
   message!: string;
   img!: string | ArrayBuffer | null;
 
-  get placeholder() {
-    return `https://starwars-visualguide.com/assets/img/big-placeholder.jpg`;
-  }
-
   constructor(
     private charactersService: CharactersService,
     private activateRoute: ActivatedRoute,
@@ -66,9 +62,10 @@ export class CharactersItemComponent implements OnInit {
     this.filmsId = this.data.films.map((res) => setID(res));
     this.vehiclesId = this.data.vehicles.map((res) => setID(res));
     this.starshipsId = this.data.starships.map((res) => setID(res));
-    this.contentChecker(this.starshipsId);
+
     this.contentChecker(this.filmsId);
     this.contentChecker(this.vehiclesId);
+    this.contentChecker(this.starshipsId);
   }
 
   contentChecker(id: number[]) {
