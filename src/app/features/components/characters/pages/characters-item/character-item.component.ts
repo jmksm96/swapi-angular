@@ -3,7 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { setID } from 'src/app/core/helpers/set-id';
 import { Character } from 'src/app/core/models/character';
+import { FilmResponse } from 'src/app/core/models/film';
 import { CharactersService } from 'src/app/core/services/characters.service';
+import { FilmsService } from 'src/app/core/services/films.service';
 import { ImageService } from 'src/app/core/services/image.service';
 
 @Component({
@@ -17,6 +19,7 @@ export class CharactersItemComponent implements OnInit {
   isLoading!: boolean;
   homeworldId!: number;
   vehiclesId!: number[];
+  films?: FilmResponse[] = [];
   filmsId!: number[];
   starshipsId!: number[];
   message!: string;
@@ -24,6 +27,7 @@ export class CharactersItemComponent implements OnInit {
 
   constructor(
     private charactersService: CharactersService,
+    private filmsService: FilmsService,
     private activateRoute: ActivatedRoute,
     private imageService: ImageService
   ) {
@@ -46,6 +50,37 @@ export class CharactersItemComponent implements OnInit {
     });
   }
 
+  getElements(externalID?: number[]) {
+    switch (externalID) {
+      case this.filmsId:
+        externalID.forEach((id) => {
+          this.filmsService.getFilm(id).subscribe((res) => {
+            this.films!.push(res);
+          });
+        });
+        break;
+
+      case this.filmsId:
+        externalID.forEach((id) => {
+          this.filmsService.getFilm(id).subscribe((res) => {
+            this.films!.push(res);
+          });
+        });
+        break;
+
+      case this.filmsId:
+        externalID.forEach((id) => {
+          this.filmsService.getFilm(id).subscribe((res) => {
+            this.films!.push(res);
+          });
+        });
+        break;
+
+      default:
+        break;
+    }
+  }
+
   getCharacterInfo(id: string) {
     this.isLoading = true;
     this.charactersService
@@ -54,6 +89,9 @@ export class CharactersItemComponent implements OnInit {
       .subscribe((res) => {
         this.data = new Character(res);
         this.idHandler();
+        this.getElements(this.filmsId);
+        this.getElements(this.vehiclesId);
+        this.getElements(this.starshipsId);
       });
   }
 
@@ -62,6 +100,8 @@ export class CharactersItemComponent implements OnInit {
     this.filmsId = this.data.films.map((res) => setID(res));
     this.vehiclesId = this.data.vehicles.map((res) => setID(res));
     this.starshipsId = this.data.starships.map((res) => setID(res));
+
+    // console.log(this.films);
 
     this.contentChecker(this.filmsId);
     this.contentChecker(this.vehiclesId);
