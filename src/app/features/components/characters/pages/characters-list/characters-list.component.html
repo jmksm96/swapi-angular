@@ -1,35 +1,37 @@
-<div class="container">
+<section class="container">
   <h2 class="category-title">Characters</h2>
-  <div class="navigation">
-    <nz-breadcrumb>
-      <nz-breadcrumb-item>
-        <a [routerLink]="['/']">Home</a>
-      </nz-breadcrumb-item>
-      <nz-breadcrumb-item>Characters</nz-breadcrumb-item>
-    </nz-breadcrumb>
-    <nz-pagination [nzPageIndex]="1"
-                   [nzTotal]="data?.count"
-                   [nzSize]="'small'"
-                   (nzPageIndexChange)="onPageIndexChange($event)"></nz-pagination>
-  </div>
-  <div class="cards">
-    <div class="card"
-         [routerLink]="['/characters', character.id]"
-         *ngFor="let character of data?.results">
-      <div class="img-wrapper">
-        <img src="{{character?.img}}"
-             alt="photos">
+  <div class="wrapper">
+    <div class="navigation">
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>
+          <a [routerLink]="['/']">Home</a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>Characters</nz-breadcrumb-item>
+      </nz-breadcrumb>
+      <nz-pagination [nzPageIndex]="1"
+                     [nzTotal]="data?.count"
+                     [nzSize]="'small'"
+                     (nzPageIndexChange)="onPageIndexChange($event)"></nz-pagination>
+    </div>
+    <div class="cards">
+      <div class="card"
+           [routerLink]="['/characters', character.id]"
+           *ngFor="let character of data?.results">
+        <div class="img-wrapper">
+          <img src="{{character?.img}}"
+               alt="photos">
+        </div>
+        <p>{{character?.name}}</p>
       </div>
-      <p>{{character?.name}}</p>
-    </div>
-    <div class="spiner">
-      <ng-template #indicatorTemplate><i nz-icon
-           nzType="loading"></i></ng-template>
-      <nz-spin nzSimple
-               nzTip="Loading..."
-               [nzIndicator]="indicatorTemplate"
-               *ngIf="isLoading"
-               [nzSize]="'large'"></nz-spin>
+      <div class="spiner">
+        <ng-template #indicatorTemplate><i nz-icon
+             nzType="loading"></i></ng-template>
+        <nz-spin nzSimple
+                 nzTip="Loading..."
+                 [nzIndicator]="indicatorTemplate"
+                 *ngIf="isLoading"
+                 [nzSize]="'large'"></nz-spin>
+      </div>
     </div>
   </div>
-</div>
+</section>

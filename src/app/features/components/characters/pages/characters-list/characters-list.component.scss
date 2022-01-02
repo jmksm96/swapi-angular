@@ -1,7 +1,19 @@
+.container {
+  margin: 0 auto;
+}
+
 .navigation {
-  padding: 0 4.55rem;
+  padding: 0;
 }
 
 .spiner {
   margin-top: 15rem;
+}
+
+.wrapper {
+  padding: 0 3rem;
+}
+
+.card {
+  max-width: none;
 }

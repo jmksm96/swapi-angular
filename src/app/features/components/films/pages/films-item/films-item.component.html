@@ -22,7 +22,7 @@
         <div class="resident"
              *ngFor="let character of characterId"
              [routerLink]="['/characters', character]">
-          <app-characters-logo [id]="character"></app-characters-logo>
+
         </div>
       </div>
     </div>
@@ -34,7 +34,6 @@
         <div class="planet"
              *ngFor="let planet of planetId"
              [routerLink]="['/planets', planet]">
-          <app-planets-logo [id]="planet"></app-planets-logo>
         </div>
       </div>
     </div>

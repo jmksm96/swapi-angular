@@ -29,6 +29,7 @@
       height: 20rem;
     }
   }
+
   .related-blocks {
     display: flex;
     justify-content: center;
@@ -54,14 +55,31 @@
     }
   }
 
+  .films {
+    flex-wrap: wrap;
+  }
+
   .related {
-    min-height: 15rem;
+    // min-height: 15rem;
     display: flex;
     align-items: center;
     padding: 1rem;
 
     .related-content {
+      // flex: 0 1 20%;
       padding: 1rem;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      p {
+        text-align: center;
+      }
     }
   }
+}
+
+.message {
+  margin: 0 auto;
 }

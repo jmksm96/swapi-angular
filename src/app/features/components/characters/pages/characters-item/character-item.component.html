@@ -47,17 +47,13 @@
                  [nzIndicator]="indicatorTemplate"
                  *ngIf="isLoading"
                  [nzSize]="'large'"></nz-spin>
-        <!-- <p *ngIf="message">{{message}}</p> -->
-        <!-- <div class="related-content"
-             *ngFor="let id of filmsId"
-             [routerLink]="['/films', id]">
-          <app-films-logo [id]="id"></app-films-logo>
-        </div> -->
         <div class="related-content"
              *ngFor="let film of films"
              [routerLink]="['/films', id]">
-          {{film.title}}
-          <!-- <app-films-logo [id]="id"></app-films-logo> -->
+          <p>{{film.title}}</p>
+          <img [src]="film.img"
+               class="logo"
+               alt="">
         </div>
       </div>
     </div>
@@ -76,37 +72,44 @@
                  [nzIndicator]="indicatorTemplate"
                  *ngIf="isLoading"
                  [nzSize]="'large'"></nz-spin>
-        <p *ngIf="message">{{message}}</p>
+        <p *ngIf="vehicles!.length <= 0"
+           class="message">No related content</p>
         <div class="related-content"
-             *ngFor="let id of vehiclesId"
+             *ngFor="let vehicle of vehicles"
              [routerLink]="['/vehicles', id]">
-          <app-vehicles-logo [id]="id"></app-vehicles-logo>
+          <p>{{vehicle.name}}</p>
+          <img [src]="vehicle.img"
+               alt=""
+               class="logo">
         </div>
       </div>
-    </div>
 
-    <div class="related-wrapper">
-      <div class="title">
-        <h3>Related Starships</h3>
-        <div class="line"></div>
-      </div>
-      <div class="related starships">
-        <ng-template #indicatorTemplate><i nz-icon
-             class="spiner"
-             nzType="loading"></i>
-        </ng-template>
-        <nz-spin nzSimple
-                 nzTip="Loading..."
-                 [nzIndicator]="indicatorTemplate"
-                 *ngIf="isLoading"
-                 [nzSize]="'large'"></nz-spin>
-        <p *ngIf="message">{{message}}</p>
-        <div class="related-content"
-             *ngFor="let id of starshipsId"
-             [routerLink]="['/starships', id]">
-          <app-starships-logo [id]="id"></app-starships-logo>
+      <div class="related-wrapper">
+        <div class="title">
+          <h3>Related Starships</h3>
+          <div class="line"></div>
+        </div>
+        <div class="related starships">
+          <ng-template #indicatorTemplate><i nz-icon
+               class="spiner"
+               nzType="loading"></i>
+          </ng-template>
+          <nz-spin nzSimple
+                   nzTip="Loading..."
+                   [nzIndicator]="indicatorTemplate"
+                   *ngIf="isLoading"
+                   [nzSize]="'large'"></nz-spin>
+          <p *ngIf="starships!.length <= 0"
+             class="message">No related content</p>
+          <div class="related-content"
+               *ngFor="let starship of starships"
+               [routerLink]="['/starships', id]">
+            <p>{{starship.name}}</p>
+            <img [src]="starship.img"
+                 class="logo"
+                 alt="">
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
