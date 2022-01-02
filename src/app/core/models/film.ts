@@ -32,6 +32,7 @@ export class Film implements FilmResponse {
   created!: string;
   edited!: string;
   url!: string;
+  picture!: string | ArrayBuffer | null;
 
   get img() {
     return `https://starwars-visualguide.com/assets/img/films/${this.id}.jpg`;
